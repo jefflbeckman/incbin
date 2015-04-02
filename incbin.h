@@ -97,9 +97,9 @@
  */
 
 #ifndef __ghs__
-#define INCMACRO ".incbin"
+#define INC_MACRO ".incbin"
 #else
-#define INCMACRO "\tINCBIN"
+#define INC_MACRO "\tINCBIN"
 #endif
 
 #define INCBIN(NAME, FILENAME) \
@@ -108,7 +108,7 @@
             INCBIN_TYPE(g ## NAME ## Data) \
             ".align " INCBIN_STRINGIZE(INCBIN_ALIGNMENT) "\n" \
             INCBIN_MANGLE "g" #NAME "Data:\n" \
-            INCMACRO " \"" FILENAME "\"\n" \
+            INC_MACRO " \"" FILENAME "\"\n" \
             INCBIN_GLOBAL(g ## NAME ## End) \
             INCBIN_TYPE(g ## NAME ## End) \
             ".align 1\n" \
